@@ -10,25 +10,25 @@ router.get('/add', (req, res, next) => {
 })
 
 router.post('/add', (req, res, next) => {
-    const { title, post } = req.body
+    const { title, author, post } = req.body
 
     Blog.create({
         title,
         // date,
-        // author: req.session.user._id,
+        author: req.session.user._id,
         post
     })
     .then((createdBlog) => {
         console.log('New blog:', createdBlog)
         // res.redirect(`/blog/add/${createdBlog._id}`)
-        res.redirect('/blog/blog-home')
+        res.redirect('/blog/home')
     })
     .catch((error) => {
         console.log(error)
     })
 })
 
-router.get('/blog-home', (req, res, next) => {
+router.get('/home', (req, res, next) => {
     Blog.find()
     .then((blogs) => {
         res.render('blog/blog-home.hbs', {blogs})
@@ -38,6 +38,16 @@ router.get('/blog-home', (req, res, next) => {
     })
 })
 
-
+router.get('/entry/:id', (req, res, next) => {
+    Blog.findById(req.params.id)
+    // .populate('author')
+    .then((entry) => {
+        console.log('entry:', entry)
+        res.render('blog/blog-entry.hbs', entry)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+})
 
 module.exports = router;
