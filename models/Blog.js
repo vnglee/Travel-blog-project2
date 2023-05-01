@@ -3,10 +3,10 @@ const { model, Schema } = require('mongoose')
 const blogSchema = new Schema(
     {
       title: String,  
-      date: Date,
+      date: { type: Date, default: Date.now },
       author: { type: Schema.Types.ObjectId, ref: "User"},
-      
-
-
+      post: String
     }
 )
+
+module.exports = model('Blog', blogSchema)
