@@ -4,7 +4,13 @@
 </nav>
 <h2>{{title}}</h2>
 
-<p>Published on: {{date}}</p>
-<p>Create by: {{author.userName}}<p>
+<p>Last updated: {{updatedAt}}</p>
+<p>Written by: {{author.userName}}<p>
 <p>{{post}}</p>
 <hr>
+
+<a href="/blog/edit/{{_id}}"><button>Edit Post</button></a>
+
+<form action="/blog/delete/{{_id}}" method="get">
+<button type="submit">Delete Post</button>
+</form>

@@ -1,0 +1,16 @@
+
+<h2>{{title}}</h2>
+
+<form action="/blog/edit/{{_id}}" method="post">
+
+<label>Title
+<input id="title" type="text" name="title" value="{{title}}">
+</label>
+<br>
+<label>
+<textarea name="post" cols="75" rows="30">{{post}}</textarea>
+</label>
+<br>
+<button type="submit">Edit Post</button>
+
+</form>

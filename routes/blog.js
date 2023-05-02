@@ -39,15 +39,53 @@ router.get('/home', (req, res, next) => {
 })
 
 router.get('/entry/:id', (req, res, next) => {
-    Blog.findById(req.params.id)
-    // .populate('author')
-    .then((entry) => {
+    const {id} = req.params
+    Blog.findById(id)
+        .populate('author')
+        .then((entry) => {
         console.log('entry:', entry)
         res.render('blog/blog-entry.hbs', entry)
     })
     .catch((error) => {
         console.log(error)
     })
+})
+
+router.get('/delete/:id', (req, res, next) => {
+    const {id} = req.params
+
+    Blog.findByIdAndRemove(id)
+        .then(() => {
+            res.redirect('/blog/home')
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
+
+router.get('/edit/:id', (req, res, next) => {
+    const {id} = req.params
+
+    Blog.findById(id)
+        .then((blog) => {
+        res.render('blog/edit.hbs', blog)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+})
+
+router.post('/edit/:id', (req, res, next) => {
+    const {id} = req.params
+    const {title, date, author, post} = req.body
+
+    Blog.findByIdAndUpdate(id, req.body, {new: true})
+        .then((blog) => {
+            res.redirect(`/blog/entry/${id}`)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
 })
 
 module.exports = router;
