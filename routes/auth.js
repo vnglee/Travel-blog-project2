@@ -4,15 +4,33 @@ var mongoose = require('mongoose')
 
 const User = require('../models/User')
 
+const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard')
+
 const bcryptjs = require('bcryptjs')
 const saltRounds = 10
 
-router.get('/signup', (req, res, next) => {
+// const {isLoggedIn, isLoggedOut} = require('../middleware/route-guard')
+
+router.get('/signup', isLoggedOut, (req, res, next) => {
     res.render('auth/signup.hbs')
 })
 
-router.post('/signup', (req, res, next) => {
+router.post('/signup', isLoggedOut, (req, res, next) => {
     const { firstName, lastName, userName, email, password } = req.body
+
+//   if (!fullName || !email || !password) {
+//         res.render('auth/signup', { errorMessage: 'All fields are mandatory. Please provide your username, email and password.' });
+//         return;
+//     }
+
+//     //check the password strength
+//     const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+//     if (!regex.test(password)) {
+//         res
+//             .status(500)
+//             .render('auth/signup', { errorMessage: 'Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.' });
+//         return;
+//     }
 
     bcryptjs
         .genSalt(saltRounds)
@@ -36,11 +54,11 @@ router.post('/signup', (req, res, next) => {
 
 })
 
-router.get('/login', (req, res, next) => {
+router.get('/login', isLoggedOut, (req, res, next) => {
     res.render('auth/login.hbs')
 })
 
-router.post('/login', (req, res, next) => {
+router.post('/login', isLoggedOut, (req, res, next) => {
     const { email, password } = req.body
 
     User.findOne({email})
@@ -60,11 +78,11 @@ router.post('/login', (req, res, next) => {
     .catch(error => next(error));
 })
 
-router.get('/loggedout', (req, res, next) => {
+router.get('/loggedout', isLoggedIn, (req, res, next) => {
     res.render('auth/loggedout.hbs')
 })
 
-router.get('/logout', (req, res, next) => {
+router.get('/logout', isLoggedIn, (req, res, next) => {
     if(req.session)
     req.session.destroy(err => {
         if (err) next(err)

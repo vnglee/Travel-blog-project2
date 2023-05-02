@@ -9,6 +9,24 @@
 <p>{{post}}</p>
 <hr>
 
+
+<form action="/comment/add-comment/{{_id}}" method="POST">
+    <label for="comment">Add Comment</label>
+    <input id="comment" type="text" name="comment">
+    <button type="submit">Submit</button>
+</form>
+
+{{#each comments}}
+
+    <p>{{comment}}</p>
+    <h6>{{user.userName}}</h6>
+
+    <br>
+
+{{/each}}
+
+
+<br>
 <a href="/blog/edit/{{_id}}"><button>Edit Post</button></a>
 
 <form action="/blog/delete/{{_id}}" method="get">

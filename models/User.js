@@ -9,7 +9,7 @@ const userSchema = new Schema(
         password: String,
     },
     {
-        timestamp: true
+        timestamps: true
     }
 )
 

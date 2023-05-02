@@ -1,0 +1,10 @@
+<h2>Hello, {{userName}}</h2>
+
+{{#if user}}
+{{!-- add or update profile picture --}}
+
+Name: {{user.firstName}} {{user.lastName}}
+<br>
+Email: {{user.email}}
+
+{{/if}}

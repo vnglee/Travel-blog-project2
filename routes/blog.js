@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-// var mongoose = require('mongoose')
 
 // const User = require('../models/User')
 const Blog = require('../models/Blog')
+const Comment = require('../models/Comment')
 
 router.get('/add', (req, res, next) => {
     res.render('blog/add.hbs')
@@ -41,7 +41,9 @@ router.get('/home', (req, res, next) => {
 router.get('/entry/:id', (req, res, next) => {
     const {id} = req.params
     Blog.findById(id)
-        .populate('author')
+        .populate('author') 
+        .populate({path: "comments",
+            populate: {path: "user"}})
         .then((entry) => {
         console.log('entry:', entry)
         res.render('blog/blog-entry.hbs', entry)
