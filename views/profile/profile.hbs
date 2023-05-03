@@ -6,7 +6,7 @@
 <h2>Hello, {{user.userName}}</h2>
 
 {{#if user}}
-{{!-- add or update profile picture --}}
+
 <img src="{{user.imageUrl}}" alt="profile picture" class="rounded-circle" style="max-width:10%;">
 
 
@@ -20,17 +20,19 @@
           {{!-- <input type="file" name="imageUrl" hidden value="{{imageUrl}}"> --}}
         </label>
       </div>
+
  <br>
 Name: {{user.firstName}} {{user.lastName}}
 <br>
 Email: {{user.email}}
  <br>
       <button type="submit" class="btn btn-success">Save changes</button>
-
     </form>
   </div>
 </div>
+
 {{/if}}
+
 </div>
 </div>
 </div>

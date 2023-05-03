@@ -19,16 +19,16 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link active" aria-current="page" href="/auth/login">Login</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/blog/home">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/auth/logout">Logout</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/users/profile">Profile</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Blogs
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/blog/home">Most Recent</a></li>
+            <li><a class="dropdown-item" href="/blog/add">Add a Post</a></li>
+          </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,16 +43,16 @@
             <li><a class="dropdown-item" href="/blog/location/south-america">South America</a></li>
           </ul>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/logout">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/profile">Profile</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
-
-    {{!-- <img class="bg" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=100" alt="bg image"> --}}
-    {{!-- <a href="/">Home</a>
-    <a href="/blog/home">Blog</a>
-    <a href="/auth/logout">Logout</a>
-    <a href="/users/profile">Profile</a> --}}
     {{{body}}}
   {{!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script> --}}
   {{!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script> --}}

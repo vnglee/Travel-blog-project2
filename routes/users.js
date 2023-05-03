@@ -32,7 +32,7 @@ router.post('/profile', isLoggedIn, fileUploader.single('imageUrl'), (req, res, 
   User.findByIdAndUpdate(req.session.user._id, { imageUrl }, { new: true })
     .then((foundUser) => {
       console.log(foundUser)
-    res.redirect(`/users/profile`)
+    res.redirect('/users/profile')
   })
     .catch(error => console.log(`Error while updating a single movie: ${error}`))
 

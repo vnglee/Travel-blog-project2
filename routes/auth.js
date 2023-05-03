@@ -68,7 +68,6 @@ router.post('/login', isLoggedOut, (req, res, next) => {
             req.session.user = user
             console.log('User:', user)
             res.redirect('/blog/home')
-            // res.redirect(`/users/profile`);
         } else {
             res.render('auth/login', { errorMessage: 'Incorrect email or password' });
         }
@@ -76,15 +75,16 @@ router.post('/login', isLoggedOut, (req, res, next) => {
     .catch(error => next(error));
 })
 
-router.get('/logout', isLoggedIn, (req, res, next) => {
-    res.render('auth/logout.hbs')
-})
+// router.get('/logout', isLoggedIn, (req, res, next) => {
+//     res.render('auth/logout.hbs')
+// })
 
 router.get('/logout', isLoggedIn, (req, res, next) => {
     if(req.session)
+    console.log("logout:", res.session)
     req.session.destroy(err => {
         if (err) next(err)
-        res.redirect('/auth/logout')
+        res.redirect('/')
     })
 })
 
