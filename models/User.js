@@ -7,6 +7,7 @@ const userSchema = new Schema(
         userName: String,
         email: String,
         password: String,
+        imageUrl: String
     },
     {
         timestamps: true

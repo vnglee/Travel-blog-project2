@@ -1,17 +1,26 @@
 <nav>
     <a href="/blog/add">New Entry</a>
 </nav>
+<h2>Blog Home</h2>
+{{#each blogs}}
 <div class="container">
   <div class="opacity-75">
   <div class="card border-0 shadow my-5">
     <div class="card-body p-5">
-<h2>Blog Home</h2>
-{{#each blogs}}
-<h3><a href="/blog/entry/{{_id}}">{{title}}</a></h3>
-<hr>
-{{/each}}
 
+
+
+<h3><a href="/blog/entry/{{_id}}">{{title}}</a></h3>
+Last updated: {{updatedAt}}
+<br>
+<img src="{{imageUrl}}" alt="photo" style="max-width: 20%" class="rounded float-start">
+  <div class="col-3">
+  <p class="text-truncate">
+        {{post}}
+  </p>
+  </div>
 </div>
 </div>
 </div>
 </div>
+{{/each}}

@@ -4,19 +4,22 @@ var router = express.Router();
 // const User = require('../models/User')
 const Blog = require('../models/Blog')
 const Comment = require('../models/Comment')
+// ********* require fileUploader in order to use it *********
+const fileUploader = require('../config/cloudinary.js')
 
 router.get('/add', (req, res, next) => {
     res.render('blog/add.hbs')
 })
 
-router.post('/add', (req, res, next) => {
+router.post('/add', fileUploader.single('imageUrl'), (req, res, next) => {
     const { title, author, post } = req.body
-
+    console.log(title)
     Blog.create({
         title,
         // date,
         author: req.session.user._id,
-        post
+        post,
+        imageUrl: req.file.path
     })
     .then((createdBlog) => {
         console.log('New blog:', createdBlog)

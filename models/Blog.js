@@ -6,7 +6,8 @@ const blogSchema = new Schema(
       // date: { type: Date, default: Date.now },
       author: { type: Schema.Types.ObjectId, ref: "User"},
       post: String,
-      comments: [{ type: Schema.Types.ObjectId, ref: "Comment"}]
+      comments: [{ type: Schema.Types.ObjectId, ref: "Comment"}],
+      imageUrl: String
     },
     {
       timestamps: true

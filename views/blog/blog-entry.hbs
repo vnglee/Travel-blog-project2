@@ -2,11 +2,24 @@
     <a href="/blog/add">New Entry</a>
     <a href="/blog/home">Go Back</a>
 </nav>
-<h2>{{title}}</h2>
+
+
+<div class="container">
+  <div class="opacity-75">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+        <h2>{{title}}</h2>
 
 <p>Last updated: {{updatedAt}}</p>
 <p>Written by: {{author.userName}}<p>
+<img src="{{imageUrl}}" alt="photo" style="max-width: 40%" class="rounded float-end">
 <p>{{post}}</p>
+<br>
+<a href="/blog/edit/{{_id}}"><button>Edit Post</button></a>
+
+<form action="/blog/delete/{{_id}}" method="get">
+<button type="submit">Delete Post</button>
+</form>
 <hr>
 
 
@@ -15,20 +28,23 @@
     <input id="comment" type="text" name="comment">
     <button type="submit">Submit</button>
 </form>
-
+</div>
+</div>
+</div>
+</div>
 {{#each comments}}
-
+<div class="container">
+  <div class="opacity-75">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
     <p>{{comment}}</p>
     <h6>{{user.userName}}</h6>
 
     <br>
+</div>
+</div>
+</div>
+</div>
 
 {{/each}}
 
-
-<br>
-<a href="/blog/edit/{{_id}}"><button>Edit Post</button></a>
-
-<form action="/blog/delete/{{_id}}" method="get">
-<button type="submit">Delete Post</button>
-</form>
