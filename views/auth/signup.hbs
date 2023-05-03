@@ -1,8 +1,8 @@
 <h2>Sign Up</h2>
 
-<form action="/auth/signup" method="post">
+<form action="/auth/signup" method="post"> 
 
-<label>First Name
+ <label>First Name
     <input type="text" name="firstName">
 </label>
 <br>
@@ -28,3 +28,32 @@
       <p class="error">{{errorMessage}}</p>
     {{/if}}
 </form>
+
+{{!-- <form class="row g-3" action="/auth/signup" method="post">
+  <div class="col-md-6">
+    <label for="firstName" class="form-label">First Name</label>
+    <input type="text" class="form-control" id="firstName">
+  </div>
+  <div class="col-md-6">
+    <label for="lastName" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="lastName">
+  </div>
+   <div class="col-md-6">
+    <label for="userName" class="form-label">Username</label>
+    <input type="text" class="form-control" id="userName">
+  </div>
+   <div class="col-md-6">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+   <div class="col-md-6">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password">
+  </div>
+ 
+    </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Create Account</button>
+  </div>
+</form> --}}

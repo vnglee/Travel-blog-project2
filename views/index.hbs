@@ -1,13 +1,45 @@
-  <nav>
+  {{!-- <nav>
       <a href="/">Home</a>
       <a href="/auth/login">Login</a>
       <a href="/auth/signup">Signup</a>
-      {{!-- <a href="/auth/logout">Logout</a> --}}
-      {{!-- <a href="/blog/add">Add New Blog</a> --}}
-    </nav>
+      <a href="/auth/logout">Logout</a> 
+      <a href="/blog/add">Add New Blog</a> 
+    </nav>  --}}
 
-<h1>Welcome to Tabibito</h1>
 
-<p>What does Tabibito mean? 旅人[たびびと] is the Japanese word for traveler. This is a site dedicated to travelers of all kinds to share their experiences and talk about everything relating to traveling.</p>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Tabibito</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/signup">Signup</a>
+        </li>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<p>Please log in to interact and read all the wonderful stories from our community of travelers. If you don't have an account, it's free to sign up, so what are you waiting for?</p>
+<div class="container">
+  <div class="opacity-75">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+      <h1 class="fw-light">Welcome to Tabibito</h1>
+      <p class="lead">What does Tabibito mean? 旅人[たびびと] is the Japanese word for traveler. This is a site dedicated to travelers of all kinds to share their experiences and talk about everything relating to traveling.
+<br><br>
+Please log in to interact and read all the wonderful stories from our community of travelers. If you don't have an account, it's free to sign up, so what are you waiting for?</p>
+    </div>
+    </div>
+  </div>
+</div>
+

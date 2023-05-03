@@ -5,13 +5,13 @@
 
 <h2>Add Post</h2>
 
-<form action="/blog/add" method="post">
+{{!-- <form action="/blog/add" method="post">
 
 <label>Title
 <input id="title" type="text" name="title">
 </label>
 <br>
-{{!-- <label>Location</label>
+<label>Location</label>
 <select name="location" id="location">
 <option value="Africa">Africa</option>
 <option value="Antartica">Antartica</option>
@@ -21,11 +21,20 @@
 <option value="North America">North America</option>
 <option value="South America">South America</option>
 </select>
-<br> --}}
+<br> 
 <label>
 <textarea name="post" cols="75" rows="30"></textarea>
 </label>
 <br>
 <button type="submit">Post</button>
 
-</form>
+</form> --}}
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" style="'height: 100px"></textarea>
+</div>

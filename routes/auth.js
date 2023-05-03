@@ -46,7 +46,7 @@ router.post('/signup', isLoggedOut, (req, res, next) => {
         })
         .then(createdUser => {
             console.log('New user:', createdUser)
-            res.redirect('/')
+            res.redirect('/blog/home')
         })
         .catch((error) => {
             console.log(error)
