@@ -1,13 +1,14 @@
-<h2>Hello, {{userName}}</h2>
+<div class="container">
+  <div class="opacity-75">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+
+<h2>Hello, {{user.userName}}</h2>
 
 {{#if user}}
 {{!-- add or update profile picture --}}
-<img src="{{user.imageUrl}}" alt="profile picture">
-Name: {{user.firstName}} {{user.lastName}}
-<br>
-Email: {{user.email}}
+<img src="{{user.imageUrl}}" alt="profile picture" class="rounded-circle" style="max-width:10%;">
 
-{{/if}}
 
 <div class="row">
   <div class="col-md-6">
@@ -19,9 +20,18 @@ Email: {{user.email}}
           {{!-- <input type="file" name="imageUrl" hidden value="{{imageUrl}}"> --}}
         </label>
       </div>
- 
+ <br>
+Name: {{user.firstName}} {{user.lastName}}
+<br>
+Email: {{user.email}}
+ <br>
       <button type="submit" class="btn btn-success">Save changes</button>
- 
+
     </form>
   </div>
+</div>
+{{/if}}
+</div>
+</div>
+</div>
 </div>

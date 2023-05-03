@@ -20,14 +20,7 @@
 <form action="/blog/delete/{{_id}}" method="get">
 <button type="submit">Delete Post</button>
 </form>
-<hr>
 
-
-<form action="/comment/add-comment/{{_id}}" method="POST">
-    <label for="comment">Add Comment</label>
-    <input id="comment" type="text" name="comment">
-    <button type="submit">Submit</button>
-</form>
 </div>
 </div>
 </div>
@@ -37,10 +30,16 @@
   <div class="opacity-75">
   <div class="card border-0 shadow my-5">
     <div class="card-body p-5">
-    <p>{{comment}}</p>
+    <img src="{{user.imageUrl}}" alt="user image" class="rounded-circle float-left" style="max-width:5%;">
     <h6>{{user.userName}}</h6>
+    <p>{{comment}}</p>
 
-    <br>
+    <br><br><hr>
+<form action="/comment/add-comment/{{_id}}" method="POST">
+    <label for="comment">Add Comment</label>
+    <input id="comment" type="text" name="comment">
+    <button type="submit">Submit</button>
+</form>
 </div>
 </div>
 </div>

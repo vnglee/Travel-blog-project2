@@ -20,8 +20,7 @@ router.get('/profile', isLoggedIn, (req, res, next) => {
 });
 
 router.post('/profile', isLoggedIn, fileUploader.single('imageUrl'), (req, res, next) => {
-  // const { id } = req.params;
-  // const { title, description, existingImage } = req.body;
+
   console.log(req.file)
   let imageUrl;
   if (req.file) {
@@ -30,19 +29,11 @@ router.post('/profile', isLoggedIn, fileUploader.single('imageUrl'), (req, res, 
     imageUrl = existingImage;
   }
  
-  // User.findOne(req.session.user)
-  // .then((user) => {
-  //   console.log('user:', user)
-  //   res.render('profile/profile.hbs', {user});
-  // })
-  // .catch((error) => {
-  //   console.log(error)
-  // })
-
   User.findByIdAndUpdate(req.session.user._id, { imageUrl }, { new: true })
     .then((foundUser) => {
       console.log(foundUser)
-    res.redirect(`/users/profile`)})
+    res.redirect(`/users/profile`)
+  })
     .catch(error => console.log(`Error while updating a single movie: ${error}`))
 
 });

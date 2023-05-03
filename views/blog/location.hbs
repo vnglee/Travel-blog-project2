@@ -1,14 +1,24 @@
-<h2>hi</h2>
 
-     {{!-- title,
-        location,
-        author: req.session.user._id,
-        post,
-        imageUrl: req.file.path --}}
+<h2>hello!!!</h2>
+
 {{#each loc}}
-   {{title}}
+<div class="container">
+  <div class="opacity-75">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+<h3><a href="/blog/entry/{{_id}}">{{title}}</a></h3>
+Last updated: {{updatedAt}}
+   {{!-- {{location}}    --}}
    <br>
-   {{location}}   
-   <br>
-   <img src="{{imageUrl}}" alt="image">  
+   <img src="{{imageUrl}}" alt="image" style="max-width: 40%" class="rounded float-end"> 
+     <div class="text-truncate-container">
+  <p class="text-truncate">
+        {{post}}
+  </p>
+  </div>
+   </div>
+</div>
+</div>
+</div>
 {{/each}}   
+
