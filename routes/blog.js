@@ -37,7 +37,13 @@ router.get("/home", (req, res, next) => {
     .sort({ updatedAt: "desc" })
     .limit(5)
     .then((blogs) => {
-      res.render("blog/blog-home.hbs", { blogs });
+        const blogPost = blogs.map((element) => {
+            
+            return {...element._doc, updatedAt : element.updatedAt.toString().slice(0,10)}
+        
+        })
+        console.log("blog post:", blogPost)
+      res.render("blog/blog-home.hbs", blogPost);
     })
     .catch((error) => {
       console.log(error);
@@ -51,7 +57,9 @@ router.get("/entry/:id", (req, res, next) => {
     .populate({ path: "comments", populate: { path: "user" } })
     .then((entry) => {
       console.log("entry:", entry);
-      res.render("blog/blog-entry.hbs", entry);
+      const tripPost = {...entry._doc, updatedAt: entry.updatedAt.toString().slice(0,10)}
+      console.log(tripPost)
+      res.render("blog/blog-entry.hbs", tripPost);
     })
     .catch((error) => {
       console.log(error);
@@ -98,10 +106,13 @@ router.post("/edit/:id", (req, res, next) => {
 router.get("/location/:name", (req, res, next) => {
   console.log(req.params.name);
 
-  Blog.find({ location: req.params.name })
+  Blog.find({ location: req.params.name.replace("-", " ") })
     .then((loc) => {
-      console.log(loc);
-      res.render("blog/location.hbs", { loc });
+     const locations = loc.map((element)=> {
+        return {...element._doc, updatedAt: element.updatedAt.toString().slice(0,10)}
+     })
+     console.log(locations)
+      res.render("blog/location.hbs", locations);
     })
     .catch((error) => {
       console.log(error);

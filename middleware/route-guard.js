@@ -7,7 +7,7 @@ const isLoggedIn = (req, res, next) => {
 
 const isLoggedOut = (req, res, next) => {
     if (req.session.user) {
-        return res.redirect('/auth/loggedout')
+        return res.redirect('/')
     }
     next()
 }
