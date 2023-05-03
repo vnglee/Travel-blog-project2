@@ -9,8 +9,6 @@ const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard')
 const bcryptjs = require('bcryptjs')
 const saltRounds = 10
 
-// const {isLoggedIn, isLoggedOut} = require('../middleware/route-guard')
-
 router.get('/signup', isLoggedOut, (req, res, next) => {
     res.render('auth/signup.hbs')
 })

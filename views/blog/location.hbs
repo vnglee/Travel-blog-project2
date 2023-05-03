@@ -1,0 +1,14 @@
+<h2>hi</h2>
+
+     {{!-- title,
+        location,
+        author: req.session.user._id,
+        post,
+        imageUrl: req.file.path --}}
+{{#each loc}}
+   {{title}}
+   <br>
+   {{location}}   
+   <br>
+   <img src="{{imageUrl}}" alt="image">  
+{{/each}}   

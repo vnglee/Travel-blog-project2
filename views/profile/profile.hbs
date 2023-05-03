@@ -2,9 +2,26 @@
 
 {{#if user}}
 {{!-- add or update profile picture --}}
-
+<img src="{{user.imageUrl}}" alt="profile picture">
 Name: {{user.firstName}} {{user.lastName}}
 <br>
 Email: {{user.email}}
 
 {{/if}}
+
+<div class="row">
+  <div class="col-md-6">
+    <form action="/users/profile" method="post" enctype="multipart/form-data">
+ 
+      <div class="form-group">
+        <label>Change Profile Picture:
+          <input type="file" name="imageUrl" class="form-control-file" />
+          {{!-- <input type="file" name="imageUrl" hidden value="{{imageUrl}}"> --}}
+        </label>
+      </div>
+ 
+      <button type="submit" class="btn btn-success">Save changes</button>
+ 
+    </form>
+  </div>
+</div>

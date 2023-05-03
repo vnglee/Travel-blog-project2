@@ -30,11 +30,22 @@
 
 </form> --}}
 
+
 <div class="mb-3">
   <form action="/blog/add" method="post" enctype="multipart/form-data">
   <label for="exampleFormControlInput1" class="form-label">Title</label>
   <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
 </div>
+<label for="location">Location:</label>
+
+<select name="location" id="location">
+  <option value="africa">Africa</option>
+  <option value="antartica">Antartica</option>
+  <option value="asia">Asia</option>
+  <option value="europe">Europe</option>
+  <option value="north america">North America</option>
+  <option value="south america">South America</option>
+</select>
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Post</label>
   <textarea class="form-control" name="post" id="exampleFormControlTextarea1" style="'height: 100px"></textarea>
