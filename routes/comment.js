@@ -32,4 +32,16 @@ router.post('/add-comment/:id', isLoggedIn, (req, res, next) => {
 
 })
 
+// router.get("/delete/:id", (req, res, next) => {
+//     const { id } = req.params;
+  
+//     Blog.findByIdAndRemove(id)
+//       .then(() => {
+//         res.redirect("/blog/home");
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//     });
+
 module.exports = router;

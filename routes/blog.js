@@ -90,32 +90,6 @@ router.get("/delete/:id", (req, res, next) => {
       console.log(error);
     });
   });
-  //-------------------------
-  // router.post('/profile', isLoggedIn, fileUploader.single('imageUrl'), (req, res, next) => {
-  
-  //   console.log('this is the existing image: ', req.session.user.imageUrl)
-  
-  //   console.log(req.file)
-  //   let existingImage = req.session.user.imageUrl;
-  //   if (req.file) {
-  //     imageUrl = req.file.path;
-  //   } else {
-  //     imageUrl = existingImage;
-  //   }
-   
-  //   User.findByIdAndUpdate(req.session.user._id, { imageUrl }, { new: true })
-  //     .then((foundUser) => {
-  //       req.session.user = foundUser
-  //       console.log(foundUser)
-  //     res.redirect('/users/profile')
-  //   })
-  //     .catch(error => console.log(`Error while updating a single movie: ${error}`))
-  
-  // });
-  //-------------------------
-
-
-
 
 router.get("/edit/:id", (req, res, next) => {
   const { id } = req.params;
@@ -129,9 +103,35 @@ router.get("/edit/:id", (req, res, next) => {
     });
 });
 
-router.post("/edit/:id", (req, res, next) => {
+router.post("/edit/:id", fileUploader.single('imageUrl'), (req, res, next) => {
   const { id } = req.params;
   const { title, date, author, post } = req.body;
+  console.log("this is req body: ", req.body)
+    console.log("this is req file: ", req.file)
+    Blog.findById(id)
+    .then((blog) => {
+      let postImage = blog.imageUrl;
+      if (req.file) {
+        postImage = req.file.path;
+      } 
+      Blog.findByIdAndUpdate(id,
+        {
+          title,
+          post,
+          imageUrl: postImage
+        }
+        , { new: true })
+    .then((blog) => {
+      res.redirect(`/blog/entry/${id}`);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  
 
   Blog.findByIdAndUpdate(id, req.body, { new: true })
     .then((blog) => {

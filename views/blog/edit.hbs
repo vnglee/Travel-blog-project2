@@ -46,12 +46,14 @@
     <div class="card-body p-2">
 <h2>{{title}}</h2>
 
-<form action="/blog/edit/{{_id}}" method="post">
+<form action="/blog/edit/{{_id}}" method="post" enctype="multipart/form-data">
 
 <label>Title
 <input id="title" type="text" name="title" value="{{title}}">
 </label>
 <br>
+  <label for="image" class="form-label">Change Image</label>
+  <input type="file" name="imageUrl"/>
 <label>
 <textarea name="post" cols="75" rows="30">{{post}}</textarea>
 </label>
