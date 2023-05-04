@@ -9,7 +9,7 @@ const { isLoggedIn} = require('../middleware/route-guard')
 
 router.get('/profile', isLoggedIn, (req, res, next) => {
 
-  User.findOne(req.session.user)
+  User.findById(req.session.user._id)
   .then((user) => {
     console.log('user:', user)
     res.render('profile/profile.hbs', {user});
@@ -21,8 +21,10 @@ router.get('/profile', isLoggedIn, (req, res, next) => {
 
 router.post('/profile', isLoggedIn, fileUploader.single('imageUrl'), (req, res, next) => {
 
+  console.log('this is the existing image: ', req.session.user.imageUrl)
+
   console.log(req.file)
-  let imageUrl;
+  let existingImage = req.session.user.imageUrl;
   if (req.file) {
     imageUrl = req.file.path;
   } else {
@@ -31,6 +33,7 @@ router.post('/profile', isLoggedIn, fileUploader.single('imageUrl'), (req, res, 
  
   User.findByIdAndUpdate(req.session.user._id, { imageUrl }, { new: true })
     .then((foundUser) => {
+      req.session.user = foundUser
       console.log(foundUser)
     res.redirect('/users/profile')
   })

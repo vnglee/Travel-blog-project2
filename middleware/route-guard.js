@@ -12,4 +12,8 @@ const isLoggedOut = (req, res, next) => {
     next()
 }
 
+const isOwner = (req, res, next) => {
+    
+}
+
 module.exports = { isLoggedIn, isLoggedOut }

@@ -57,7 +57,19 @@ router.get("/entry/:id", (req, res, next) => {
     .populate({ path: "comments", populate: { path: "user" } })
     .then((entry) => {
       console.log("entry:", entry);
-      const tripPost = {...entry._doc, updatedAt: entry.updatedAt.toString().slice(0,10)}
+
+      let bool;
+      
+      if (req.session.user) {
+
+          
+          if (entry.author._id.toString() === req.session.user._id) {
+                  bool = true
+                } else {
+                  bool = false
+              }
+            }
+      const tripPost = {...entry._doc, updatedAt: entry.updatedAt.toString().slice(0,10), isOwner: bool}
       console.log(tripPost)
       res.render("blog/blog-entry.hbs", tripPost);
     })
@@ -65,6 +77,7 @@ router.get("/entry/:id", (req, res, next) => {
       console.log(error);
     });
 });
+
 
 router.get("/delete/:id", (req, res, next) => {
   const { id } = req.params;
@@ -76,7 +89,33 @@ router.get("/delete/:id", (req, res, next) => {
     .catch((error) => {
       console.log(error);
     });
-});
+  });
+  //-------------------------
+  // router.post('/profile', isLoggedIn, fileUploader.single('imageUrl'), (req, res, next) => {
+  
+  //   console.log('this is the existing image: ', req.session.user.imageUrl)
+  
+  //   console.log(req.file)
+  //   let existingImage = req.session.user.imageUrl;
+  //   if (req.file) {
+  //     imageUrl = req.file.path;
+  //   } else {
+  //     imageUrl = existingImage;
+  //   }
+   
+  //   User.findByIdAndUpdate(req.session.user._id, { imageUrl }, { new: true })
+  //     .then((foundUser) => {
+  //       req.session.user = foundUser
+  //       console.log(foundUser)
+  //     res.redirect('/users/profile')
+  //   })
+  //     .catch(error => console.log(`Error while updating a single movie: ${error}`))
+  
+  // });
+  //-------------------------
+
+
+
 
 router.get("/edit/:id", (req, res, next) => {
   const { id } = req.params;

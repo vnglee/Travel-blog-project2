@@ -14,6 +14,7 @@ router.post('/add-comment/:id', isLoggedIn, (req, res, next) => {
     })
     .then((newComment) => {
         console.log('new comment', newComment)
+        console.log("this is params:", req.params.id)
         return Blog.findByIdAndUpdate(req.params.id, 
         {
             $push: {comments: newComment._id}

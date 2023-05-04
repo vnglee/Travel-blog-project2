@@ -8,13 +8,18 @@
 <p>Last updated: {{updatedAt}}</p>
 <p>Written by: {{author.userName}}<p>
 <img src="{{imageUrl}}" alt="photo" style="max-width: 40%" class="rounded float-end">
-<p>{{post}}</p>
+<p id="blog">{{post}}</p>
 <br>
-<a href="/blog/edit/{{_id}}"><button>Edit Post</button></a>
 
-<form action="/blog/delete/{{_id}}" method="get">
+{{#if isOwner}}
+<a href="/blog/edit/{{_id}}"><button>Edit Post</button></a>
+<a href="blog/delete/{{_id}}">
+<button>Delete Post</button>
+</a>
+{{/if}}
+{{!-- <form action="/blog/delete/{{_id}}" method="get">
 <button type="submit">Delete Post</button>
-</form>
+</form> --}}
 
 </div>
 </div>
@@ -30,6 +35,17 @@
     <p>{{comment}}</p>
 
     <br><br><hr>
+</div>
+</div>
+</div>
+</div>
+{{/each}}
+
+
+<div class="container">
+  <div class="opacity-75">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
 <form action="/comment/add-comment/{{_id}}" method="POST">
     <label for="comment">Add Comment</label>
     <input id="comment" type="text" name="comment">
@@ -39,6 +55,4 @@
 </div>
 </div>
 </div>
-
-{{/each}}
 

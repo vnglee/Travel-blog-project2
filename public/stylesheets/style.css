@@ -21,3 +21,7 @@ a {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+#blog {
+  white-space: pre-wrap;
+}
