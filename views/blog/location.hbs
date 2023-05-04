@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/blog/home">Tabibito</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,16 +39,7 @@
     </div>
   </div>
 </nav>
-
-<div class="container">
-  <div class="opacity-75">
-  <div class="card border-0 shadow my-5">
-    <div class="card-body p-2">
-<h2>{{req.body.location}}</h2>
-</div>
-</div>
-</div>
-</div>
+<br>
 
 {{#each this}}
 {{#if title}}

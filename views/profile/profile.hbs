@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/blog/home">Tabibito</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,6 +39,7 @@
     </div>
   </div>
 </nav>
+<br>
 
 
 <div class="container">
@@ -50,7 +51,7 @@
 
 {{#if user}}
 
-<img src="{{user.imageUrl}}" alt="profile picture" class="rounded-circle" style="max-width:10%;">
+<img src="{{user.imageUrl}}" alt="image" class="rounded-circle" style="max-width:15%;">
 
 
 <div class="row">
@@ -58,9 +59,8 @@
     <form action="/users/profile" method="post" enctype="multipart/form-data">
  
       <div class="form-group">
-        <label>Change Profile Picture:
+        <label>Add/Change Profile Picture:
           <input type="file" name="imageUrl" class="form-control-file" />
-          {{!-- <input type="file" name="imageUrl" hidden value="{{imageUrl}}"> --}}
         </label>
       </div>
 
