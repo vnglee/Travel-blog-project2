@@ -82,9 +82,6 @@ router.post('/login', isLoggedOut, (req, res, next) => {
     .catch(error => next(error));
 })
 
-// router.get('/logout', isLoggedIn, (req, res, next) => {
-//     res.render('auth/logout.hbs')
-// })
 
 router.get('/logout', isLoggedIn, (req, res, next) => {
     if(req.session)

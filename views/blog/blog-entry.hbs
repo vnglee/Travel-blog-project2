@@ -54,9 +54,9 @@
 <br>
 
 {{#if isOwner}}
-<a href="/blog/edit/{{_id}}"><button>Edit Post</button></a>
+<a href="/blog/edit/{{_id}}"><button class="btn btn-secondary">Edit Post</button></a>
 <a href="blog/delete/{{_id}}">
-<button>Delete Post</button>
+<button class="btn btn-secondary">Delete Post</button>
 </a>
 {{/if}}
 
@@ -64,23 +64,32 @@
 </div>
 </div>
 </div>
+
 <div class="container">
   <div class="opacity-75">
   <div class="card border-0 shadow my-5">
-    <div class="card-body p-3">
+    <div class="card-body p-2">
       <h3>Comments:</h3>
 {{#each comments}}
-    <img src="{{user.imageUrl}}" alt="user image" class="rounded-circle float-left" style="max-width:5%;">
-    <h6>{{user.userName}}</h6>
+<div class="card rounded">
+    <div class="card-body"> 
+        <div class="row">
+            <div class="col">
+ <img src="{{user.imageUrl}}" alt="user image" class="rounded-circle img-fluid float-left" style="max-width:5%">
+    <b>{{user.userName}}</b>
+    <br>
     <p>{{comment}}</p>
-
-<hr>
+            </div>
+        </div>
+    </div>
+</div>
 {{/each}}
 
 <form action="/comment/add-comment/{{_id}}" method="POST">
-    <label for="comment">Add Comment</label>
-    <input id="comment" type="text" name="comment">
-    <button type="submit">Submit</button>
+    <label for="comment"></label>
+    <input id="exampleFormControlInput1" type="text" name="comment" class="form-control" placeholder="Add Comment">
+    <br>
+    <button type="submit" class="btn btn-secondary">Submit</button>
 </form>
 </div>
 </div>

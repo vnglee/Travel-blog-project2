@@ -16,13 +16,42 @@
 </nav>
 <br>
 
-<div class="container">
+<div class="container w-50">
   <div class="opacity-75">
   <div class="card border-0 shadow my-5">
     <div class="card-body p-5">
 <h2>Sign Up</h2>
-
-<form action="/auth/signup" method="post"> 
+<h6>*All fields are required</h6>
+<form action="/auth/login" method="post">
+<div class="mb-3">
+  <label class="form-control" id="exampleFormControlInput1">First Name:
+  <input type="text" name="firstName" class="form-control" id="exampleFormControlInput1">
+  </label>
+</div>
+<div class="mb-3">
+  <label class="form-control" id="exampleFormControlInput1">Last Name:
+  <input type="text" name="lastName" class="form-control" id="exampleFormControlInput1">
+  </label>
+</div>
+<div class="mb-3">
+  <label class="form-control" id="exampleFormControlInput1">Username:
+  <input type="text" name="userName" class="form-control" id="exampleFormControlInput1">
+  </label>
+</div>
+<div class="mb-3">
+  <label class="form-control" id="exampleFormControlInput1">Email:
+  <input type="email" name="email" class="form-control" id="exampleFormControlInput1">
+  </label>
+</div>
+<div class="mb-3">
+  <label class="form-control" id="exampleFormControlInput1">Password:
+  <input type="password" name="password" class="form-control" id="exampleFormControlInput1">
+  </label>
+</div>
+<div class="text-center">
+<button type="submit" class="btn btn-secondary">Create Account</button>
+</div>
+{{!-- <form action="/auth/signup" method="post"> 
 
  <label>First Name
     <input type="text" name="firstName">
@@ -42,9 +71,9 @@
 <br>
 <label>Password
     <input type="password" name="password">
-</label>
+</label> --}}
 <br>
-<button type="submit">Create Account</button>
+
 
   {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
