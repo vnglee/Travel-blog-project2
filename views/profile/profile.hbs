@@ -51,9 +51,12 @@
 
 {{#if user}}
 
-<img src="{{user.imageUrl}}" alt="image" class="rounded-circle" style="max-width:15%;">
-
-
+<img src="{{user.imageUrl}}" alt="image" class="rounded-circle img-fluid float-left" style="max-width:10%;">
+Name: {{user.firstName}} {{user.lastName}}
+<br>
+Email: {{user.email}}
+<br>
+<br>
 <div class="row">
   <div class="col-md-6">
     <form action="/users/profile" method="post" enctype="multipart/form-data">
@@ -64,11 +67,6 @@
         </label>
       </div>
 
- <br>
-Name: {{user.firstName}} {{user.lastName}}
-<br>
-Email: {{user.email}}
- <br>
  <br>
       <button type="submit" class="btn btn-success">Save changes</button>
     </form>
