@@ -1,12 +1,13 @@
-
-<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+<nav class="navbar navbar-expand-lg bg-light fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/blog/home">Tabibito</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Blogs
@@ -16,6 +17,7 @@
             <li><a class="dropdown-item" href="/blog/add">Add a Post</a></li>
           </ul>
         </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Locations
@@ -29,15 +31,21 @@
             <li><a class="dropdown-item" href="/blog/location/south-america">South America</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/auth/logout">Logout</a>
-        </li>
+  </div>
+  </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+        <ul class="navbar-nav ms-auto flex-nowrap">
         <li class="nav-item">
           <a class="nav-link" href="/users/profile">Profile</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/logout">Logout</a>
+        </li>
+        </ul>
+        </div>
+
       </ul>
-    </div>
-  </div>
+  
 </nav>
 <br>
 
@@ -50,9 +58,9 @@
 <h3><a class="link-offset-2 link-underline link-underline-opacity-0" href="/blog/entry/{{_id}}">{{title}}</a></h3>
 Last updated: {{updatedAt}}
    <br>
-   <img src="{{imageUrl}}" alt="image" style="max-width: 20%" class="rounded float-end"> 
+   <img src="{{imageUrl}}" alt="image" style="max-width: 15%" class="rounded float-end"> 
      <div class="text-truncate-container">
-  <p class="text-truncate">
+  <div class="text-ellipsis--2">
         {{post}}
   </p>
   </div>

@@ -22,6 +22,10 @@
     <div class="card-body p-5">
 <h2>Login</h2>
 
+  {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+
 <form action="/auth/login" method="post">
 <div class="mb-3">
   <label class="form-control" id="exampleFormControlInput1">Email:
@@ -38,12 +42,10 @@
 <br>
 <br>
 Don't have an account? Click <a href="/auth/signup">here</a> to sign up
-</div>
-  {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
-</form>
 
+
+</form>
+</div>
 </div>
 </div>
 </div>
