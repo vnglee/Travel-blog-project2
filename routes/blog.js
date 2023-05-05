@@ -146,6 +146,7 @@ router.get("/location/:name", (req, res, next) => {
   console.log(req.params.name);
 
   Blog.find({ location: req.params.name.replace("-", " ") })
+  .sort({ updatedAt: "desc" })
     .then((loc) => {
      const locations = loc.map((element)=> {
         return {...element._doc, updatedAt: element.updatedAt.toString().slice(0,10)}
